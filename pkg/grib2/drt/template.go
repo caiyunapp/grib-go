@@ -3,7 +3,6 @@ package drt
 import (
 	"encoding/binary"
 	"encoding/json"
-	"fmt"
 
 	"github.com/scorix/grib-go/internal/pkg/bitio"
 	"github.com/scorix/grib-go/pkg/grib2/drt/datapacking"
@@ -82,7 +81,7 @@ func ReadTemplate(r datapacking.BitReader, n TemplateNumber, numVals int) (Templ
 		return gridpoint.NewPortableNetworkGraphics(tplDef, numVals), nil
 	}
 
-	return nil, fmt.Errorf("data template not implemented: %d", n)
+	return gridpoint.NewUnknown(numVals), nil
 }
 
 // TemplateMarshaler
@@ -168,7 +167,9 @@ func (tm *TemplateMarshaler) UnmarshalJSON(data []byte) error {
 
 		tm.Template = gridpoint.NewPortableNetworkGraphics(tplDef, t.Vals)
 		return nil
-	}
 
-	return fmt.Errorf("data template not implemented: %d", t.Number)
+	default:
+		tm.Template = gridpoint.NewUnknown(t.Vals)
+		return nil
+	}
 }
