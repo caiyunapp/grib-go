@@ -6,7 +6,7 @@ import (
 	"io"
 	"time"
 
-	"github.com/scorix/grib-go/pkg/grib2/definition"
+	"github.com/caiyunapp/grib-go/pkg/grib2/definition"
 )
 
 type Section1 interface {

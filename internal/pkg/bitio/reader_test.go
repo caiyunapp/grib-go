@@ -5,7 +5,7 @@ import (
 	"io"
 	"testing"
 
-	"github.com/scorix/grib-go/internal/pkg/bitio"
+	"github.com/caiyunapp/grib-go/internal/pkg/bitio"
 	"github.com/stretchr/testify/assert"
 )
 

@@ -8,11 +8,11 @@ import (
 	"io"
 	"time"
 
-	"github.com/scorix/grib-go/internal/pkg/bitio"
-	"github.com/scorix/grib-go/pkg/grib2/cache"
-	"github.com/scorix/grib-go/pkg/grib2/drt"
-	gridpoint "github.com/scorix/grib-go/pkg/grib2/drt/grid_point"
-	"github.com/scorix/grib-go/pkg/grib2/gdt"
+	"github.com/caiyunapp/grib-go/internal/pkg/bitio"
+	"github.com/caiyunapp/grib-go/pkg/grib2/cache"
+	"github.com/caiyunapp/grib-go/pkg/grib2/drt"
+	gridpoint "github.com/caiyunapp/grib-go/pkg/grib2/drt/grid_point"
+	"github.com/caiyunapp/grib-go/pkg/grib2/gdt"
 )
 
 type Message interface {

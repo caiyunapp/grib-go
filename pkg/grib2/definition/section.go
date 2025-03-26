@@ -1,9 +1,9 @@
 package definition
 
 import (
-	"github.com/scorix/grib-go/pkg/grib2/drt"
-	"github.com/scorix/grib-go/pkg/grib2/gdt"
-	"github.com/scorix/grib-go/pkg/grib2/pdt"
+	"github.com/caiyunapp/grib-go/pkg/grib2/drt"
+	"github.com/caiyunapp/grib-go/pkg/grib2/gdt"
+	"github.com/caiyunapp/grib-go/pkg/grib2/pdt"
 )
 
 // Section 0

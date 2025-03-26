@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"io"
 
-	"github.com/scorix/grib-go/pkg/gribio"
+	"github.com/caiyunapp/grib-go/pkg/gribio"
 )
 
 var (

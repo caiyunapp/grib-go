@@ -1,4 +1,4 @@
-module github.com/scorix/grib-go
+module github.com/caiyunapp/grib-go
 
 go 1.23.2
 

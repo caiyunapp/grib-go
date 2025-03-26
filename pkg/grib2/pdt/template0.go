@@ -3,7 +3,7 @@ package pdt
 import (
 	"time"
 
-	"github.com/scorix/grib-go/pkg/grib2/regulation"
+	"github.com/caiyunapp/grib-go/pkg/grib2/regulation"
 )
 
 type template0 struct {
