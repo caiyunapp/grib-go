@@ -6,12 +6,12 @@ toolchain go1.23.3
 
 require (
 	github.com/aliyun/aliyun-oss-go-sdk v3.0.2+incompatible
+	github.com/caiyunapp/walg v0.8.0
 	github.com/scorix/aliyun-oss-io v0.3.3
 	github.com/scorix/go-eccodes v0.1.5
-	github.com/scorix/walg v0.5.3
 	github.com/stretchr/testify v1.10.0
 	golang.org/x/exp v0.0.0-20240904232852-e7e105dedf7e
-	golang.org/x/sync v0.10.0
+	golang.org/x/sync v0.12.0
 )
 
 require (
@@ -21,5 +21,3 @@ require (
 	golang.org/x/time v0.9.0 // indirect
 	gopkg.in/yaml.v3 v3.0.1 // indirect
 )
-
-// replace github.com/scorix/walg => ../walg

@@ -1786,3 +1786,130 @@ func TestGrib2_ReadImage(t *testing.T) {
 	// 	require.NotNil(t, img)
 	// })
 }
+
+func TestGrib2_ReadSectionAt_LambertConformalConic(t *testing.T) {
+	t.Parallel()
+
+	const filename = "../testdata/lambert_conformal.grib2"
+
+	f, err := os.Open(filename)
+	if errors.Is(err, os.ErrNotExist) {
+		t.Skipf("%s not exist", filename)
+	}
+	defer f.Close()
+
+	g := grib.NewGrib2(f)
+
+	sec0, err := g.ReadSectionAt(0)
+	require.NoError(t, err)
+	require.Equal(t, 0, sec0.Number())
+	require.Equal(t, 16, sec0.Length())
+
+	sec1, err := g.ReadSectionAt(16)
+	require.NoError(t, err)
+	require.Equal(t, 1, sec1.Number())
+	require.Equal(t, 21, sec1.Length())
+
+	sec2, err := g.ReadSectionAt(37)
+	require.NoError(t, err)
+	require.Equal(t, 3, sec2.Number())
+	require.Equal(t, 81, sec2.Length())
+
+	sec4, err := g.ReadSectionAt(118)
+	require.NoError(t, err)
+	require.Equal(t, 4, sec4.Number())
+	require.Equal(t, 34, sec4.Length())
+
+	sec5, err := g.ReadSectionAt(152)
+	require.NoError(t, err)
+	require.Equal(t, 5, sec5.Number())
+	require.Equal(t, 21, sec5.Length())
+
+	sec6, err := g.ReadSectionAt(173)
+	require.NoError(t, err)
+	require.Equal(t, 6, sec6.Number())
+	require.Equal(t, 6, sec6.Length())
+
+	sec7, err := g.ReadSectionAt(179)
+	require.NoError(t, err)
+	require.Equal(t, 7, sec7.Number())
+	require.Equal(t, 909_287, sec7.Length())
+
+	sec8, err := g.ReadSectionAt(909_466)
+	require.NoError(t, err)
+	require.Equal(t, 8, sec8.Number())
+	require.Equal(t, 4, sec8.Length())
+
+	msg1, err := g.ReadMessageAt(0)
+	require.NoError(t, err)
+	require.NotNil(t, msg1)
+}
+
+func TestSection7_ReadData_LambertConformalConic(t *testing.T) {
+	t.Parallel()
+
+	const filename = "../testdata/lambert_conformal.grib2"
+
+	f, err := os.Open(filename)
+	if errors.Is(err, os.ErrNotExist) {
+		t.Skipf("%s not exist", filename)
+	}
+	defer f.Close()
+
+	g := grib.NewGrib2(f)
+
+	var sec7 grib2.Section7
+	var tpl drt.Template
+	var dataLen int
+
+	var offset int64
+
+	for {
+		sec, err := g.ReadSectionAt(offset)
+		require.NoError(t, err)
+
+		offset += int64(sec.Length())
+
+		if sec.Number() == 3 {
+			tpl := sec.(grib2.Section3).GetGridDefinitionTemplate()
+			t.Logf("tpl: %+v", tpl)
+		}
+
+		if sec.Number() == 5 {
+			tpl = sec.(grib2.Section5).GetDataRepresentationTemplate()
+			dataLen = sec.(grib2.Section5).GetNumberOfValues()
+			require.Equal(t, 454641, dataLen)
+		}
+
+		if sec.Number() == 7 {
+			sec7 = sec.(grib2.Section7)
+
+			break
+		}
+	}
+
+	data, err := sec7.GetData(tpl)
+	require.NoError(t, err)
+	require.Equal(t, dataLen, len(data))
+
+	// grib_dump -O pkg/testdata/hpbl.grib2
+	exampleValues := []float64{
+		100992, 100991, 100990, 100989, 100989, 100990, 100991, 100992,
+		100994, 100996, 100997, 100998, 101000, 101001, 101003, 101004,
+		101006, 101007, 101009, 101011, 101012, 101014, 101016, 101027,
+		101051, 101080, 101019, 101021, 101025, 101028, 101032, 101032,
+		101031, 101037, 101050, 101050, 101041, 101040, 101044, 101049,
+		101050, 101104, 101077, 101062, 101055, 101053, 101048, 101041,
+		101039, 101039, 101040, 101041, 101043, 101044, 101046, 101049,
+		101051, 101052, 101054, 101055, 101056, 101057, 101058, 101059,
+		101060, 101060, 101060, 101060, 101060, 101059, 101059, 101058,
+		101058, 101059, 101060, 101061, 101062, 101064, 101065, 101067,
+		101069, 101071, 101072, 101073, 101075, 101075, 101076, 101077,
+		101078, 101079, 101080, 101081, 101082, 101083, 101083, 101083,
+		101082, 101081, 101081, 101080,
+	}
+
+	for i, v := range exampleValues {
+		assert.InDelta(t, v, data[i], 1)
+	}
+}

@@ -36,6 +36,14 @@ func ReadTemplate(r io.Reader, n uint16) (Template, error) {
 
 		return tpl.Export(), nil
 
+	case 30:
+		var tpl template30FixedPart
+		if err := binary.Read(r, binary.BigEndian, &tpl); err != nil {
+			return nil, err
+		}
+
+		return tpl.Export(), nil
+
 	case 40:
 		var tpl template40FixedPart
 		if err := binary.Read(r, binary.BigEndian, &tpl); err != nil {
@@ -55,6 +63,7 @@ func ReadTemplate(r io.Reader, n uint16) (Template, error) {
 func UnMarshalJSONTemplate(data []byte) (Template, error) {
 	var tpl struct {
 		Template0  *Template0FixedPart  `json:"template0"`
+		Template30 *Template30FixedPart `json:"template30"`
 		Template40 *Template40FixedPart `json:"template40"`
 	}
 
@@ -65,6 +74,8 @@ func UnMarshalJSONTemplate(data []byte) (Template, error) {
 	switch {
 	case tpl.Template0 != nil:
 		return tpl.Template0.AsTemplate(), nil
+	case tpl.Template30 != nil:
+		return tpl.Template30.AsTemplate(), nil
 	case tpl.Template40 != nil:
 		return tpl.Template40.AsTemplate(), nil
 	}
