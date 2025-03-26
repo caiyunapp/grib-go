@@ -3,9 +3,9 @@ package gdt
 import (
 	"math"
 
+	"github.com/caiyunapp/walg/pkg/geo/grids"
+	"github.com/caiyunapp/walg/pkg/geo/grids/latlon"
 	"github.com/scorix/grib-go/pkg/grib2/regulation"
-	"github.com/scorix/walg/pkg/geo/grids"
-	"github.com/scorix/walg/pkg/geo/grids/latlon"
 )
 
 /*
