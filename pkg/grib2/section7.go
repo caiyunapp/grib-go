@@ -6,9 +6,9 @@ import (
 	"io"
 	"sync"
 
-	"github.com/scorix/grib-go/internal/pkg/bitio"
-	"github.com/scorix/grib-go/pkg/grib2/definition"
-	"github.com/scorix/grib-go/pkg/grib2/drt"
+	"github.com/caiyunapp/grib-go/internal/pkg/bitio"
+	"github.com/caiyunapp/grib-go/pkg/grib2/definition"
+	"github.com/caiyunapp/grib-go/pkg/grib2/drt"
 )
 
 type Section7 interface {

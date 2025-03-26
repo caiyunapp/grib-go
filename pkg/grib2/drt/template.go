@@ -4,10 +4,10 @@ import (
 	"encoding/binary"
 	"encoding/json"
 
-	"github.com/scorix/grib-go/internal/pkg/bitio"
-	"github.com/scorix/grib-go/pkg/grib2/drt/datapacking"
-	"github.com/scorix/grib-go/pkg/grib2/drt/definition"
-	gridpoint "github.com/scorix/grib-go/pkg/grib2/drt/grid_point"
+	"github.com/caiyunapp/grib-go/internal/pkg/bitio"
+	"github.com/caiyunapp/grib-go/pkg/grib2/drt/datapacking"
+	"github.com/caiyunapp/grib-go/pkg/grib2/drt/definition"
+	gridpoint "github.com/caiyunapp/grib-go/pkg/grib2/drt/grid_point"
 )
 
 type TemplateNumber uint16

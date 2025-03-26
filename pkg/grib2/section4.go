@@ -6,8 +6,8 @@ import (
 	"fmt"
 	"io"
 
-	"github.com/scorix/grib-go/pkg/grib2/definition"
-	"github.com/scorix/grib-go/pkg/grib2/pdt"
+	"github.com/caiyunapp/grib-go/pkg/grib2/definition"
+	"github.com/caiyunapp/grib-go/pkg/grib2/pdt"
 )
 
 type Section4 interface {

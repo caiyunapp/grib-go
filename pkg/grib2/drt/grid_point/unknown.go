@@ -3,7 +3,7 @@ package gridpoint
 import (
 	"fmt"
 
-	"github.com/scorix/grib-go/internal/pkg/bitio"
+	"github.com/caiyunapp/grib-go/internal/pkg/bitio"
 )
 
 type Unknown struct {

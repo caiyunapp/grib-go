@@ -1,9 +1,9 @@
 package gdt
 
 import (
+	"github.com/caiyunapp/grib-go/pkg/grib2/regulation"
 	"github.com/caiyunapp/walg/pkg/geo/grids"
 	"github.com/caiyunapp/walg/pkg/geo/grids/gaussian"
-	"github.com/scorix/grib-go/pkg/grib2/regulation"
 )
 
 /*

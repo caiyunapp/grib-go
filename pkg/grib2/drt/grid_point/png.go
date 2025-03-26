@@ -6,10 +6,10 @@ import (
 	"image/png"
 	"io"
 
-	"github.com/scorix/grib-go/internal/pkg/bitio"
-	"github.com/scorix/grib-go/pkg/grib2/drt/datapacking"
-	"github.com/scorix/grib-go/pkg/grib2/drt/definition"
-	"github.com/scorix/grib-go/pkg/grib2/regulation"
+	"github.com/caiyunapp/grib-go/internal/pkg/bitio"
+	"github.com/caiyunapp/grib-go/pkg/grib2/drt/datapacking"
+	"github.com/caiyunapp/grib-go/pkg/grib2/drt/definition"
+	"github.com/caiyunapp/grib-go/pkg/grib2/regulation"
 )
 
 type PortableNetworkGraphics struct {

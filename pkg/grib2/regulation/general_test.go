@@ -4,7 +4,7 @@ import (
 	"math"
 	"testing"
 
-	"github.com/scorix/grib-go/pkg/grib2/regulation"
+	"github.com/caiyunapp/grib-go/pkg/grib2/regulation"
 	"github.com/stretchr/testify/assert"
 )
 

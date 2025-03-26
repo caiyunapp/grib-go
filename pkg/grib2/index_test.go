@@ -4,10 +4,10 @@ import (
 	"encoding/json"
 	"testing"
 
-	"github.com/scorix/grib-go/pkg/grib2"
-	"github.com/scorix/grib-go/pkg/grib2/drt"
-	gridpoint "github.com/scorix/grib-go/pkg/grib2/drt/grid_point"
-	"github.com/scorix/grib-go/pkg/grib2/gdt"
+	"github.com/caiyunapp/grib-go/pkg/grib2"
+	"github.com/caiyunapp/grib-go/pkg/grib2/drt"
+	gridpoint "github.com/caiyunapp/grib-go/pkg/grib2/drt/grid_point"
+	"github.com/caiyunapp/grib-go/pkg/grib2/gdt"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 )

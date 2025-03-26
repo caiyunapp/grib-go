@@ -6,13 +6,13 @@ import (
 	"os"
 	"testing"
 
+	"github.com/caiyunapp/grib-go/pkg/grib2"
+	grib "github.com/caiyunapp/grib-go/pkg/grib2"
+	gridpoint "github.com/caiyunapp/grib-go/pkg/grib2/drt/grid_point"
+	"github.com/caiyunapp/grib-go/pkg/grib2/gdt"
+	"github.com/caiyunapp/grib-go/pkg/grib2/regulation"
 	codes "github.com/scorix/go-eccodes"
 	cio "github.com/scorix/go-eccodes/io"
-	"github.com/scorix/grib-go/pkg/grib2"
-	grib "github.com/scorix/grib-go/pkg/grib2"
-	gridpoint "github.com/scorix/grib-go/pkg/grib2/drt/grid_point"
-	"github.com/scorix/grib-go/pkg/grib2/gdt"
-	"github.com/scorix/grib-go/pkg/grib2/regulation"
 	"github.com/stretchr/testify/require"
 	"golang.org/x/exp/mmap"
 )
@@ -250,7 +250,7 @@ func BenchmarkMessageReader_ReadLL(b *testing.B) {
 	/*
 		goos: darwin
 		goarch: arm64
-		pkg: github.com/scorix/grib-go/pkg/grib2
+		pkg: github.com/caiyunapp/grib-go/pkg/grib2
 		cpu: Apple M2
 		=== RUN   BenchmarkMessageReader_ReadLL
 		BenchmarkMessageReader_ReadLL

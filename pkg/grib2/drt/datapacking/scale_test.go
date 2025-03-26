@@ -3,7 +3,7 @@ package datapacking_test
 import (
 	"testing"
 
-	"github.com/scorix/grib-go/pkg/grib2/drt/datapacking"
+	"github.com/caiyunapp/grib-go/pkg/grib2/drt/datapacking"
 	"github.com/stretchr/testify/assert"
 )
 

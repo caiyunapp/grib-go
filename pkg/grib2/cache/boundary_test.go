@@ -4,7 +4,7 @@ import (
 	"context"
 	"testing"
 
-	"github.com/scorix/grib-go/pkg/grib2/cache"
+	"github.com/caiyunapp/grib-go/pkg/grib2/cache"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 )
