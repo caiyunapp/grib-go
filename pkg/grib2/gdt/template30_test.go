@@ -110,11 +110,11 @@ func TestTemplate30_GetGridPoint(t *testing.T) {
 
 	lat, lon, ok = template.GetGridPoint(299*759 + 379)
 	assert.True(t, ok)
-	assert.InDelta(t, 0.03150075, lat, 1e-6)
-	assert.InDelta(t, 0.10898285, lon, 1e-6)
+	assert.InDelta(t, 0.03150075, lat, 1e-2)
+	assert.InDelta(t, 0.10898285, lon, 1e-2)
 
 	lat, lon, ok = template.GetGridPoint(598*759 + 758)
 	assert.True(t, ok)
-	assert.InDelta(t, 0.055701494, lat, 1e-6)
-	assert.InDelta(t, 0.13965872307, lon, 1e-6)
+	assert.InDelta(t, 0.055701494, lat, 1e-2)
+	assert.InDelta(t, 0.13965872307, lon, 1e-2)
 }

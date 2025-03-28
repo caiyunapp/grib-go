@@ -6,7 +6,7 @@ toolchain go1.23.3
 
 require (
 	github.com/aliyun/aliyun-oss-go-sdk v3.0.2+incompatible
-	github.com/caiyunapp/walg v0.8.0
+	github.com/caiyunapp/walg v0.8.1
 	github.com/scorix/aliyun-oss-io v0.3.3
 	github.com/scorix/go-eccodes v0.1.5
 	github.com/stretchr/testify v1.10.0
