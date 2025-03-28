@@ -144,7 +144,8 @@ func (t *Template30FixedPart) GetNj() int32 {
 
 // GetGridIndex returns the grid index for a given latitude and longitude
 func (t *Template30) GetGridIndex(lat, lon float32) (n int) {
-	return grids.GuessGridIndex(t.grids, float64(lat), float64(lon), grids.ScanMode(t.ScanningMode))
+	latIdx, lonIdx := t.grids.GuessNearestIndex(float64(lat), float64(lon))
+	return grids.GridIndexFromIndices(t.grids, latIdx, lonIdx, grids.ScanMode(t.ScanningMode))
 }
 
 // GetGridPoint returns the latitude and longitude for a given grid index
